@@ -45,7 +45,7 @@
   --neon-pink: #FCD34D;
   --neon-glow: rgba(245, 158, 11, 0.4);
   --glass-bg: rgba(20, 20, 22, 0.6);
-  --glass-border: rgba(245, 158, 11, 0.2);
+  --glass-border: rgba(245, 158, 11, 0.15);
   --success: #3EB980;
   --warning: #FFB85C;
   --danger: #DC2626;
@@ -136,11 +136,20 @@
   }
 }
 
-/* Glassmorphism utilities */
+/* Card with depth shadow */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255,255,255,0.04) inset;
+}
+
+/* Solid dark card (for metric grids) */
+.solid-card {
+  background: #141416;
+  border: 1px solid #242428;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .neon-glow {
@@ -152,7 +161,20 @@
 }
 
 .gradient-bg {
-  background: linear-gradient(180deg, #0A0A0B 0%, #141416 100%);
+  background: #0A0A0B;
+}
+
+/* Horizontal scroll chip row — hides scrollbar */
+.chips-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.chips-row::-webkit-scrollbar {
+  display: none;
 }
 
 /* Safe area padding for mobile */

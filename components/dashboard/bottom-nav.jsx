@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { icon: Home, label: "Home", active: true },
-  { icon: Bot, label: "AI Assistant", active: false },
+  { icon: Bot, label: "AI", active: false },
   { icon: Plus, label: "Scan", isCenter: true },
   { icon: BookOpen, label: "Resources", active: false },
   { icon: User, label: "Profile", active: false },
@@ -13,7 +13,16 @@ const navItems = [
 
 export function BottomNav() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 glass-card border-t border-[var(--glass-border)] safe-bottom">
+    <nav
+      className="fixed bottom-0 left-0 right-0 safe-bottom"
+      style={{
+        background: 'rgba(14,14,15,0.92)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
+        borderTop: '1px solid rgba(245,158,11,0.1)',
+        boxShadow: '0 -4px 30px rgba(0,0,0,0.6)'
+      }}
+    >
       <div className="flex items-center justify-around px-2 pt-2 pb-2 max-w-lg mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -22,11 +31,18 @@ export function BottomNav() {
             return (
               <button
                 key={item.label}
-                className="relative -mt-6 h-14 w-14 rounded-full gradient-purple flex items-center justify-center shadow-lg shadow-[#F59E0B]/40 hover:shadow-[#F59E0B]/60 transition-all duration-300 active:scale-95"
+                className="relative -mt-7 flex-none transition-all duration-300 active:scale-90"
                 aria-label={item.label}
               >
-                <Icon className="h-7 w-7 text-[#0A0A0B]" />
-                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 hover:opacity-100 transition-opacity" />
+                <div
+                  className="h-14 w-14 rounded-full flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)',
+                    boxShadow: '0 4px 20px rgba(245,158,11,0.5), 0 1px 0 rgba(255,255,255,0.2) inset'
+                  }}
+                >
+                  <Icon className="h-6 w-6 text-[#0A0A0B]" strokeWidth={2.5} />
+                </div>
               </button>
             )
           }
@@ -35,15 +51,30 @@ export function BottomNav() {
             <button
               key={item.label}
               className={cn(
-                "flex flex-col items-center gap-1 py-2 px-3 rounded-xl transition-all duration-200",
-                item.active
-                  ? "text-[#F59E0B]"
-                  : "text-[#6B7280] hover:text-[#9CA3AF]"
+                "flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition-all duration-200 active:scale-95 relative",
+                item.active ? "text-[#F59E0B]" : "text-[#4B5563] hover:text-[#9CA3AF]"
               )}
               aria-label={item.label}
             >
-              <Icon className={cn("h-5 w-5", item.active && "drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]")} />
-              <span className="text-[10px] font-medium">{item.label}</span>
+              {/* Active dot indicator above icon */}
+              {item.active && (
+                <span
+                  className="absolute -top-0.5 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full"
+                  style={{ background: 'linear-gradient(90deg, #F59E0B, #FCD34D)' }}
+                />
+              )}
+              <Icon
+                className="h-5 w-5"
+                style={item.active ? {
+                  filter: 'drop-shadow(0 0 6px rgba(245,158,11,0.6))'
+                } : {}}
+              />
+              <span className={cn(
+                "text-[9px] font-semibold tracking-wide",
+                item.active ? "text-[#F59E0B]" : "text-[#4B5563]"
+              )}>
+                {item.label}
+              </span>
             </button>
           )
         })}
