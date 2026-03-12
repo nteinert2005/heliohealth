@@ -10,12 +10,12 @@ export function Header() {
       <div className="flex items-center gap-3">
         <Avatar className="h-10 w-10 ring-2 ring-[var(--neon-purple)]/30">
           <AvatarImage src="/placeholder-avatar.jpg" alt="User avatar" />
-          <AvatarFallback className="bg-gradient-to-br from-[#7B4DFF] to-[#A855F7] text-white text-sm font-medium">
+          <AvatarFallback className="bg-gradient-to-br from-[#F59E0B] to-[#FCD34D] text-[#0A0A0B] text-sm font-medium">
             NM
           </AvatarFallback>
         </Avatar>
         <div className="flex flex-col">
-          <span className="text-xs text-[#94A3B8]">Good morning</span>
+          <span className="text-xs text-[#9CA3AF]">Good morning</span>
           <span className="text-sm font-medium text-white">Nurse Mary</span>
         </div>
       </div>
@@ -30,8 +30,8 @@ export function Header() {
           size="icon"
           className="relative h-10 w-10 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] hover:bg-[var(--neon-purple)]/20 transition-all duration-300"
         >
-          <Bell className="h-5 w-5 text-[#94A3B8]" />
-          <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-[#EF4444] ring-2 ring-[#0B1220]" />
+          <Bell className="h-5 w-5 text-[#9CA3AF]" />
+          <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-[#DC2626] ring-2 ring-[#0A0A0B]" />
           <span className="sr-only">Notifications</span>
         </Button>
       </div>

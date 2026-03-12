@@ -33,9 +33,9 @@ const recentScans = [
 ]
 
 const riskColors = {
-  low: { bg: "bg-[#10B981]/15", text: "text-[#10B981]", dot: "bg-[#10B981]" },
-  moderate: { bg: "bg-[#F59E0B]/15", text: "text-[#F59E0B]", dot: "bg-[#F59E0B]" },
-  high: { bg: "bg-[#EF4444]/15", text: "text-[#EF4444]", dot: "bg-[#EF4444]" },
+  low: { bg: "bg-[#3EB980]/15", text: "text-[#3EB980]", dot: "bg-[#3EB980]" },
+  moderate: { bg: "bg-[#FFB85C]/15", text: "text-[#FFB85C]", dot: "bg-[#FFB85C]" },
+  high: { bg: "bg-[#DC2626]/15", text: "text-[#DC2626]", dot: "bg-[#DC2626]" },
 }
 
 export function PatientScans() {
@@ -43,7 +43,7 @@ export function PatientScans() {
     <div className="px-5 mt-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-white">Recent Scans</h2>
-        <button className="text-sm text-[#7B4DFF] font-medium hover:text-[#A855F7] transition-colors">
+        <button className="text-sm text-[#F59E0B] font-medium hover:text-[#FCD34D] transition-colors">
           View All
         </button>
       </div>
@@ -58,8 +58,8 @@ export function PatientScans() {
               key={scan.id}
               className="w-full p-4 rounded-xl glass-card flex items-center gap-4 hover:bg-[var(--neon-purple)]/10 transition-all duration-300 active:scale-[0.98] text-left"
             >
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#7B4DFF]/20 to-[#A855F7]/20 flex items-center justify-center border border-[var(--glass-border)]">
-                <Icon className="h-6 w-6 text-[#A855F7]" />
+              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#F59E0B]/20 to-[#FCD34D]/20 flex items-center justify-center border border-[var(--glass-border)]">
+                <Icon className="h-6 w-6 text-[#FCD34D]" />
               </div>
 
               <div className="flex-1 min-w-0">
@@ -69,14 +69,14 @@ export function PatientScans() {
                     {scan.riskLevel}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#64748B]">
+                <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                   <span>{scan.patient}</span>
-                  <span className="h-1 w-1 rounded-full bg-[#64748B]" />
+                  <span className="h-1 w-1 rounded-full bg-[#6B7280]" />
                   <span>{scan.date}</span>
                 </div>
               </div>
 
-              <ChevronRight className="h-5 w-5 text-[#64748B] flex-shrink-0" />
+              <ChevronRight className="h-5 w-5 text-[#6B7280] flex-shrink-0" />
             </button>
           )
         })}
